@@ -1,8 +1,10 @@
+package me.mawood.objectMap;
+
 import java.util.HashMap;
 import java.util.NoSuchElementException;
 
 /**
- * ObjectMap - PACKAGE_NAME
+ * ObjectMap - me.mawood.objectMap
  * Created by matthew on 29/05/16.
  */
 public class ObjectMap1D<T>

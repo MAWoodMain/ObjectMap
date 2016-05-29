@@ -1,5 +1,8 @@
+import me.mawood.objectMap.ObjectMap2D;
+import me.mawood.objectMap.ObjectMap3D;
+
 /**
- * ObjectMap2D - PACKAGE_NAME
+ * ObjectMap2D
  * Created by matthew on 29/05/16.
  */
 public class Test
