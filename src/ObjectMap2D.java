@@ -31,4 +31,14 @@ public class ObjectMap2D<T>
         if(!map.containsKey(y)) map.put(y,new HashMap<>());
         map.get(y).put(x,val);
     }
+
+    public void remove(int x, int y)
+    {
+        if(isEmpty(x,y)) return;
+        if(map.get(y).size() <= 1)
+        {
+            map.remove(y);
+        }
+        else map.get(y).remove(x);
+    }
 }

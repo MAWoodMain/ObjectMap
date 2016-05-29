@@ -11,6 +11,8 @@ public class Test
         twoDim.set(5,6,1);
         System.out.println(twoDim.isEmpty(5,6));
         System.out.println(twoDim.get(5,6));
+        twoDim.remove(5,6);
+        System.out.println(twoDim.isEmpty(5,6));
 
         System.out.println();
         System.out.println();
@@ -20,5 +22,7 @@ public class Test
         threeDim.set(5,6,7,1);
         System.out.println(threeDim.isEmpty(5,6,7));
         System.out.println(threeDim.get(5,6,7));
+        threeDim.remove(5,6,7);
+        System.out.println(threeDim.isEmpty(5,6,7));
     }
 }

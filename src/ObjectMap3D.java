@@ -29,4 +29,14 @@ public class ObjectMap3D<T> extends ObjectMap2D<HashMap<Integer, T>>
         if(isEmpty(x,y,z)) set(x,y,new HashMap<>());
         get(x,y).put(z,val);
     }
+
+    public void remove(int x, int y, int z)
+    {
+        if(isEmpty(x,y,z)) return;
+        if(this.get(x,y).size() <= 1)
+        {
+            this.remove(x,y);
+        }
+        else this.get(x,y).remove(z);
+    }
 }
