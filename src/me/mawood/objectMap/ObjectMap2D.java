@@ -9,7 +9,6 @@ import java.util.NoSuchElementException;
  */
 public class ObjectMap2D<T> extends ObjectMap1D<HashMap<Integer, T>>
 {
-
     public ObjectMap2D()
     {
         super();
