@@ -1,37 +1,37 @@
 package me.mawood.objectMap;
 
-import java.util.HashMap;
 import java.util.NoSuchElementException;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * ObjectMap2D - me.mawood.objectMap
  * Created by matthew on 29/05/16.
  */
-public class ObjectMap2D<T> extends ObjectMap1D<HashMap<Integer, T>>
+public class ObjectMap2D<T> extends ObjectMap1D<ConcurrentHashMap<Integer, T>>
 {
-    public ObjectMap2D()
+    public  ObjectMap2D()
     {
         super();
     }
 
-    public boolean isEmpty(int x,int y)
+    public synchronized boolean isEmpty(int x,int y)
     {
         return isEmpty(x) || !get(x).containsKey(y);
     }
 
-    public T get(int x, int y) throws NoSuchElementException
+    public synchronized T get(int x, int y) throws NoSuchElementException
     {
         if(isEmpty(x,y)) throw new NoSuchElementException();
         return this.get(x).get(y);
     }
 
-    public void set(int x, int y, T val)
+    public synchronized void set(int x, int y, T val)
     {
-        if(isEmpty(x,y)) set(x,new HashMap<>());
+        if(isEmpty(x,y)) set(x,new ConcurrentHashMap<>());
         get(x).put(y,val);
     }
 
-    public void remove(int x, int y)
+    public synchronized void remove(int x, int y)
     {
         if(isEmpty(x,y)) return;
         if(this.get(x).size() <= 1)

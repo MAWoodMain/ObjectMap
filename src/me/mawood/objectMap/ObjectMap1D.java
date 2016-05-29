@@ -1,7 +1,7 @@
 package me.mawood.objectMap;
 
-import java.util.HashMap;
 import java.util.NoSuchElementException;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * ObjectMap - me.mawood.objectMap
@@ -9,30 +9,30 @@ import java.util.NoSuchElementException;
  */
 public class ObjectMap1D<T>
 {
-    private final HashMap<Integer, T> map;
+    private final ConcurrentHashMap<Integer, T> map;
 
     public ObjectMap1D()
     {
-        map = new HashMap<>();
+        map = new ConcurrentHashMap<>();
     }
 
-    public boolean isEmpty(int x)
+    public synchronized boolean isEmpty(int x)
     {
         return !map.containsKey(x);
     }
 
-    public T get(int x) throws NoSuchElementException
+    public synchronized T get(int x) throws NoSuchElementException
     {
         if(isEmpty(x)) throw new NoSuchElementException();
         return map.get(x);
     }
 
-    public void set(int x, T val)
+    public synchronized void set(int x, T val)
     {
         map.put(x,val);
     }
 
-    public void remove(int x)
+    public synchronized void remove(int x)
     {
         if(isEmpty(x)) return;
         map.remove(x);
